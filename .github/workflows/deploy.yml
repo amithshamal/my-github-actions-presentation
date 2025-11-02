@@ -27,6 +27,7 @@ jobs:
   deploy-dev:
     if: github.event_name == 'push' && startsWith(github.ref_name, 'feature/')
     runs-on: ubuntu-latest
+    environment: dev
     steps:
       - name: Deploy to Dev
         run: echo "Deploying feature branch ${{ github.head_ref }} to Dev environment"
