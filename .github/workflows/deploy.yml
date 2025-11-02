@@ -35,6 +35,7 @@ jobs:
   deploy-uat:
     if: github.event_name == 'push' && github.ref_name == 'develop'
     runs-on: ubuntu-latest
+    environment: uat
     steps:
       - name: Deploy to UAT
         run: echo "Deploying develop branch to UAT environment"
@@ -42,6 +43,7 @@ jobs:
   deploy-prod:
     if: github.event_name == 'push' && github.ref_name == 'release'
     runs-on: ubuntu-latest
+    environment: prod
     steps:
       - name: Deploy to Prod
         run: echo "Deploying release branch to Production environment"
